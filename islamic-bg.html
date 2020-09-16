@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/all.css">
+    <style media="screen">
+    @font-face {
+      font-family: islamic1;
+      src: url("");
+    }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        direction: rtl;
+      }
+      main {
+        background: /*linear-gradient(to bottom right, #080f21, #080f50 ),*/ url("img/islamic-1.jpg") no-repeat;
+        background-size: cover;
+        width: 100%;
+        min-height: calc(700px + 200px);
+        position: relative;
+      }
+      .quraan {
+        position: absolute;
+        top: 100px;
+        left: 900px;
+        width: 400px;
+        font-family: andalus;
+        font-size:3rem;
+        color: #ececec;
+        display: none;
+      }
+      nav {
+        direction: rtl;
+        display: flex;
+        max-width: 700px;
+      }
+      nav div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px;
+        flex: 1;
+      }
+      nav a {
+        color: #999999;
+        font-family: andalus;
+        font-size: 30px;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: #f1f1f1;
+        text-decoration-line: underline;
+        text-decoration-style: dashed;
+        text-decoration-color: #f1f1f1;
+        transform: translateY(-5px);
+      }
+      .container {
+        background: #ececec;
+        color: #666666;
+        position: absolute;
+        top: 150px;
+        right: 80px;
+        min-height: 500px;
+        width: 350px;
+        padding: 50px;
+        margin-bottom: 100px;
+        font-family: andalus;
+        font-size: 1.5rem;
+        direction: rtl;
+        box-shadow:
+        0px 0px 2px 10px #eaeaea;
+        border-radius: 5px;
+        transition: width 150ms;
+        border-top: #666666 solid 2px;
+
+        }
+        .container li::selection, .container h3::selection, .fa-ul a::selection {
+          background-color: #f1f1f1;
+        }
+      .container h3 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .fa-ul a {
+        color: #666666;
+        text-decoration: none;
+      }
+      .fa-ul a:hover {
+        color:mediumturquoise;
+      }
+      .fa-ul li {
+        margin-bottom: 20px;
+      }
+      .msg {
+        position: absolute;
+        top: 150px;
+        right: 560px;
+        width: 300px;
+        height: 190px;
+        padding: 20px;
+        border-radius: 5px;
+        border-top: solid #666666 2px;
+        box-shadow:
+        0px 0px 2px 10px #eaeaea;
+        background: #ececec;
+        color: #666666;
+        display: flex;
+        flex-flow: nowrap column;
+        font-size: 25px;
+        font-family: andalus;
+      }
+      .msg-active {
+        height: fit-content;
+      }
+      .msg h3 {
+        margin-bottom: 10px;
+        cursor: pointer;
+        width: fit-content;
+      }
+      .msg h3:hover {
+        color: mediumturquoise;
+      }
+      .msg-name {
+        padding: 3px;
+        margin-bottom: 10px;
+      }
+      .msg-name, .msg-text {
+        font-family: Arabic Typesetting;
+      }
+      .msg-text p {
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .msg-text p span i {
+        font-size: 13px;
+        vertical-align: top;
+        color: #666666;
+      }
+      .msg-text p::selection {
+        background: #f1f1f1;
+      }
+      .event-date i {
+        font-size: 20px;
+      }
+      .event-date p {
+        font-size: 15px;
+      }
+      .msg-container {
+        transition: transform 200ms;
+        transform: scale(1);
+        height: fit-content;
+        transform-origin: top;
+      }
+      .msg-container-active {
+        transform: scale(0);
+        height: 0;
+        transform-origin: top;
+      }
+      .event {
+        position: absolute;
+        top: 420px;
+        right: 560px;
+        width: 300px;
+        height: fit-content;
+        padding: 20px;
+        border-radius: 5px;
+        border-top: solid #666666 2px;
+        box-shadow:
+        0px 0px 2px 10px #eaeaea;
+        background: #ececec;
+        color: #666666;
+      }
+      .event h3 {
+        font-family: andalus;
+        font-size: 25px;
+      }
+      .event p {
+        margin: 15px 0;
+        font-family: arabic typesetting;
+        font-size: large;
+      }
+      footer {
+        background: linear-gradient(to left, #000000, #111111);
+        padding: 2rem;
+        color: #ececec;
+      }
+      footer i {
+        color: #ececec;
+      }
+      @media only screen and (max-width:980px) {
+        .container {
+          width: 300px;
+          right: 50px;
+          padding: 15px;
+        }
+        .msg {
+          right: 410px;
+          width: 280px;
+          padding: 5px;
+        }
+        .event {
+          right: 410px;
+          padding: 5px;
+          width:280px;
+          top: 390px;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .container {
+          right: 50%;
+          transform: translateX(50%);
+          width: 300px;
+          padding: 10px;
+          min-height: 60vh;
+        }
+        nav a {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+  <body class="body">
+    <main>
+      <div class="quraan">
+        <h3>بسم الله الرحمن الرحیم</h3>
+      </div>
+
+      <nav>
+        <div><a href="#">صفحه نخست</a></div>
+        <div><a href="#">کتاب خانه</a></div>
+        <div><a href="#">درباره</a></div>
+      </nav>
+      <div class="container">
+        <h3>منو اصلی</h3>
+        <ul class="fa-ul">
+          <li><a href="#">سوره ها</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">دعا ها</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">دعاهای مشهور</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">نماز ها</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#" >زیارات</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">دعا های ماه مبارک رمضان</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">اعمال ماه محرم و صفر</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">اعمال ماه رجب و شعبان</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+          <li><a href="#">مناجات خمس عشره</a><span class="fa-li" ><i class="fa fa-sun"></i></span></li>
+        </ul>
+      </div>
+      <div class="msg">
+        <div class="msg-header">
+          <h3 onclick="showMsgContainer()"> <span><i id="arrow" class="fas fa-arrow-alt-circle-down"></i></span> حدیث روز </h3>
+        </div>
+        <div class="msg-container">
+          <div class="msg-name">
+            <h5>امام علی (ع)</h5>
+          </div>
+          <div class="msg-text">
+            <p><span><i class="fa fa-quote-right"></i></span> صبر بر سه گونه است: صبر بر مصیبت، و صبر بر اطاعت، و صبر بر [ترک] معصیت. <span><i class="fa fa-quote-left"></i></span></p>
+          </div>
+
+        </div>
+        <div class="hidden-counter" style="display: none">
+          1
+        </div>
+      </div>
+
+      <div class="event">
+        <h3> <span> <i class="fa fa-sticky-note"></i> </span> رویدادهای روز </h3>
+        <!-- events list  -->
+        <p>رویدادی وجود ندارد</p>
+        <div class="event-date">
+          <span><i class="fa fa-calendar-alt"></i></span>
+          <span> <p>1399/06/26</p> <p>چهارشنبه، 26 شهریور</p> </span>
+          <span> <p>2020/09/16</p> <p>Wednesday, September 16</p> </span>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="">
+        <p> <span><i class="fas fa-copyright"></i></span> کلیه حقوق مادی و معنوی این اثر متعلق به گروه برنامه نویسی "اینده روشن" میباشد</p>
+      </div>
+    </footer>
+
+
+    <div class="hidden" style="display: none">
+      <audio class="audio" id="audio">
+        <source src="audio/hover.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <script type="text/javascript">
+
+    window.addEventListener("resize", function() {
+      let width = window.innerWidth;
+      let check = Number(document.querySelector(".hidden-counter").innerHTML);
+      if (check === 1) {
+        if (width > 980) {
+          document.querySelector(".event").style.top= "420px";
+        }
+        if (width > 600 && width < 980) {
+          document.querySelector(".event").style.top= "390px";
+        }
+      }
+
+      else {
+        if (width > 980) {
+          document.querySelector(".event").style.top= "280px";
+        }
+        if ( width>600 && width<980) {
+          document.querySelector(".event").style.top= "250px";
+        }
+      }
+    })
+
+
+    function showMsgContainer() {
+      let check = Number(document.querySelector(".hidden-counter").innerHTML);
+      if (check === 1) {
+        document.querySelector(".msg-container").classList.add("msg-container-active");
+        document.querySelector(".msg").classList.add("msg-active");
+        document.querySelector("#arrow").style.transform= "rotate(180deg)";
+        document.querySelector(".hidden-counter").innerHTML= "0";
+        /* when it becomes hidden */
+        let width = window.innerWidth;
+        if (width > 980) {
+          document.querySelector(".event").style.top= "280px";
+        }
+        if ( width>600 && width<980) {
+          document.querySelector(".event").style.top= "250px";
+        }
+
+      }
+      else {
+        document.querySelector(".msg-container").classList.remove("msg-container-active");
+        document.querySelector(".msg").classList.remove("msg-active");
+        document.querySelector("#arrow").style.transform= "rotate(0deg)";
+        document.querySelector(".hidden-counter").innerHTML= "1";
+        let width = window.innerWidth;
+        if (width > 980) {
+          document.querySelector(".event").style.top= "420px";
+        }
+        if (width > 600 && width < 980) {
+          document.querySelector(".event").style.top= "390px";
+        }
+
+
+      }
+    }
+    </script>
+  </body>
+</html>
