@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/32f77a75ad.js" attr crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../assets/css/all.css">
+    <script src="https://kit.fontawesome.com/32f77a75ad.js" attr crossorigin="anonymous"></script>
     <style media="screen">
     @font-face {
       font-family: islamic1;
@@ -66,7 +66,7 @@
         position: absolute;
         top: 150px;
         right: 80px;
-        min-height: 500px;
+        height: 560px;
         width: 350px;
         padding: 50px;
         margin-bottom: 100px;
@@ -115,9 +115,12 @@
         font-size: 25px;
         font-family: andalus;
       }
+      /*
+      add this to the bottom of style
       .msg-active {
         height: fit-content;
       }
+      */
       .msg h3 {
         margin-bottom: 10px;
         cursor: pointer;
@@ -200,6 +203,7 @@
           width: 300px;
           right: 50px;
           padding: 15px;
+          top: 150px;
         }
         .msg {
           right: 410px;
@@ -213,21 +217,79 @@
           top: 390px;
         }
       }
-      @media only screen and (max-width: 600px) {
-        .container {
+      @media only screen and (max-width: 752px) {
+      .msg, .container, .event {
+        right: 50%;
+        transform: translateX(50%);
+        width: 77.5%;
+        padding: 25px;
+      }
+      .msg {
+        top:120px;
+      }
+      .container {
+        top: 400px;
+      }
+      .event {
+        top: 1050px;
+        margin-bottom: 20px;
+      }
+      main {
+        height: 1390px;
+      }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .container, .msg, .event {
           right: 50%;
           transform: translateX(50%);
-          width: 300px;
-          padding: 10px;
-          min-height: 60vh;
+          width: 77.5%;
+          padding: 25px 10px;
         }
         nav a {
           font-size: 26px;
         }
+        .msg {
+          top:120px;
+        }
+      }
+      @media only screen and (max-width: 370px) {
+        .container, .msg, .event {
+          padding: 25px 10px;
+        }
+        nav a {
+          font-size: 1.15rem;
+        }
+        .container {
+          font-size: 1.1rem;
+          top:320px;
+          height: 480px;
+        }
+        .container h3 {
+          font-size: 1.5rem;
+        }
+        .msg-header {
+          font-size: 20px;
+        }
+        .msg {
+          /* --- -100px  */
+          height: 160px;
+          top: 80px;
+        }
+        .msg-text p{
+          font-size: 15px;
+        }
+        .event {
+          top:880px;
+        }
+
+      }
+      .msg-active {
+        height: fit-content;
       }
     </style>
   </head>
-  <body class="body">
+  <body class="body" onload="setHeight()">
     <main>
       <div class="quraan">
         <h3>بسم الله الرحمن الرحیم</h3>
@@ -276,8 +338,8 @@
         <p>رویدادی وجود ندارد</p>
         <div class="event-date">
           <span><i class="fa fa-calendar-alt"></i></span>
-          <span> <p>1399/06/26</p> <p>چهارشنبه، 26 شهریور</p> </span>
-          <span> <p>2020/09/16</p> <p>Wednesday, September 16</p> </span>
+          <span> <p>1399/06/27</p> <p>پنج شنبه، 27 شهریور</p> </span>
+          <span> <p>2020/09/17</p> <p>Thursday, September 17</p> </span>
         </div>
       </div>
     </main>
@@ -295,25 +357,65 @@
     </div>
 
     <script type="text/javascript">
+    function setHeight() {
+      let width = window.innerWidth;
+      let screenHeight = screen.height;
+      if (width >= 752) {
+        screenHeight -= 20;
+        document.querySelector("main").style.height=screenHeight + "px";
+      }
+    }
 
     window.addEventListener("resize", function() {
       let width = window.innerWidth;
       let check = Number(document.querySelector(".hidden-counter").innerHTML);
+      setHeight();
       if (check === 1) {
-        if (width > 980) {
+        if (width >= 980) {
+          document.querySelector(".msg").style.top= "150px";
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "420px";
         }
-        if (width > 600 && width < 980) {
+        if (width >= 752 && width < 980) {
+          document.querySelector(".msg").style.top= "150px";
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "390px";
+        }
+        if (width >= 370 && width < 752) {
+          document.querySelector(".msg").style.top= "120px";
+          document.querySelector(".container").style.top= "400px";
+          document.querySelector(".event").style.top= "1050px";
+          document.querySelector("main").style.height= "1540px";
+        }
+        if (width >= 270 && width < 370) {
+          document.querySelector(".msg").style.top= "80px";
+          document.querySelector(".container").style.top= "320px";
+          document.querySelector(".event").style.top= "880px";
+          document.querySelector("main").style.height= "1390px";
         }
       }
 
       else {
-        if (width > 980) {
+        if (width >= 980) {
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "280px";
         }
-        if ( width>600 && width<980) {
+        if ( width >= 752 && width<980) {
+          document.querySelector(".msg").style.top= "150px";
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "250px";
+        }
+        if (width >= 370 && width < 752) {
+          document.querySelector(".msg").style.top= "120px";
+          document.querySelector(".container").style.top= "260px";
+          document.querySelector(".event").style.top= "910px";
+          document.querySelector("main").style.height= "1400px";
+        }
+        if (width >= 270 && width < 370) {
+          document.querySelector(".msg").style.top= "80px";
+          document.querySelector(".container").style.top= "180px";
+          document.querySelector(".event").style.top= "740px";
+          document.querySelector("main").style.height= "1250px";
         }
       }
     })
@@ -328,11 +430,26 @@
         document.querySelector(".hidden-counter").innerHTML= "0";
         /* when it becomes hidden */
         let width = window.innerWidth;
-        if (width > 980) {
+        if (width >= 980) {
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "280px";
         }
-        if ( width>600 && width<980) {
+        if ( width >= 752 && width<980) {
+          document.querySelector(".msg").style.top= "150px";
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "250px";
+        }
+        if (width >= 370 && width < 752) {
+          document.querySelector(".msg").style.top= "120px";
+          document.querySelector(".container").style.top= "260px";
+          document.querySelector(".event").style.top= "910px";
+          document.querySelector("main").style.height= "1400px";
+        }
+        if (width >= 270 && width < 370) {
+          document.querySelector(".msg").style.top= "80px";
+          document.querySelector(".container").style.top= "205px";
+          document.querySelector(".event").style.top= "765px";
+          document.querySelector("main").style.height= "1250px";
         }
 
       }
@@ -342,13 +459,27 @@
         document.querySelector("#arrow").style.transform= "rotate(0deg)";
         document.querySelector(".hidden-counter").innerHTML= "1";
         let width = window.innerWidth;
-        if (width > 980) {
+        if (width >= 980) {
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "420px";
         }
-        if (width > 600 && width < 980) {
+        if (width >= 752 && width < 980) {
+          document.querySelector(".msg").style.top= "150px";
+          document.querySelector(".container").style.top= "150px";
           document.querySelector(".event").style.top= "390px";
         }
-
+        if (width >= 370 && width < 752) {
+          document.querySelector(".msg").style.top= "120px";
+          document.querySelector(".container").style.top= "400px";
+          document.querySelector(".event").style.top= "1050px";
+          document.querySelector("main").style.height= "1540px";
+        }
+        if (width >= 270 && width < 370) {
+          document.querySelector(".msg").style.top= "80px";
+          document.querySelector(".container").style.top= "320px";
+          document.querySelector(".event").style.top= "880px";
+          document.querySelector("main").style.height= "1390px";
+        }
 
       }
     }
