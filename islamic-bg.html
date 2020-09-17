@@ -2,10 +2,10 @@
 <html lang="fa" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Home Page</title>
+    <title>صفحه نخست</title>
     <meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
-<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+    <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="shortcut icon" href="img/icon-1.ico" type="image/x-icon">
@@ -16,7 +16,7 @@
       src: url("assets/fonts/andlso.ttf");
     }
     @font-face {
-      font-family: Arabic Typesettings;
+      font-family: Arabic Typesetting;
       src: url("assets/fonts/arabtype.ttf");
     }
       * {
@@ -373,8 +373,7 @@
         document.querySelector("main").style.height=screenHeight + "px";
       }
     }
-
-    window.addEventListener("resize", function() {
+    function size() {
       let width = window.innerWidth;
       let check = Number(document.querySelector(".hidden-counter").innerHTML);
       setHeight();
@@ -421,12 +420,15 @@
         }
         if (width >= 270 && width < 370) {
           document.querySelector(".msg").style.top= "80px";
-          document.querySelector(".container").style.top= "180px";
-          document.querySelector(".event").style.top= "740px";
+          document.querySelector(".container").style.top= "205px";
+          document.querySelector(".event").style.top= "765px";
           document.querySelector("main").style.height= "1250px";
         }
       }
-    })
+    }
+    window.addEventListener("resize", function() {
+      size();
+    });
 
 
     function showMsgContainer() {
